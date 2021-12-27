@@ -1,4 +1,4 @@
-package com.firatsivrikaya.cursorbased.paging;
+package com.firatsivrikaya.cursorbased.paging.initializer;
 
 import com.firatsivrikaya.cursorbased.paging.entity.Customer;
 import com.firatsivrikaya.cursorbased.paging.repository.ICustomerRepository;

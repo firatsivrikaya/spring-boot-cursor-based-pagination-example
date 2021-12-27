@@ -18,10 +18,10 @@ public class CustomerController {
 
     private final ICustomerService customerService;
 
-    @GetMapping(value = "/{name}", produces = "application/json")
-    public ResponseEntity<CustomerContainerResource> getBook(@PathVariable String name, @RequestParam(required = false, defaultValue = "0") String nextPageToken, @RequestParam( defaultValue = "1") int size) {
+    @GetMapping(produces = "application/json")
+    public ResponseEntity<CustomerContainerResource> getCustomersPaged(@RequestParam(required = false, defaultValue = "0") String nextPageToken, @RequestParam(defaultValue = "1") int size) {
         Long id = Long.valueOf(nextPageToken);
-        List<Customer> customerList = customerService.getAllByName(name, id, size + 1);
+        List<Customer> customerList = customerService.getPagedById(id, size + 1);
         Pair<Long, List<Customer>> pair = IdBasedCursorTokenExtractor.extract(customerList, size, Customer::getId);
         Long nextPage = pair.getLeft();
         List<Customer> customers = pair.getRight();

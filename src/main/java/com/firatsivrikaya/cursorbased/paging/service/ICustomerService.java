@@ -13,5 +13,5 @@ public interface ICustomerService {
 
     List<Customer> saveAll(List<Customer> customerList);
 
-    List<Customer> getAllByName(String name, Long id, int size);
+    List<Customer> getPagedById(Long id, int size);
 }

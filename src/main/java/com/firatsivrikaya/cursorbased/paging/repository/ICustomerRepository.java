@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, Long> {
-    List<Customer> findAllByNameAndIdGreaterThanEqual(String name, Long id, Pageable pageable);
+    List<Customer> findAllByIdGreaterThanEqual(Long id, Pageable pageable);
 }

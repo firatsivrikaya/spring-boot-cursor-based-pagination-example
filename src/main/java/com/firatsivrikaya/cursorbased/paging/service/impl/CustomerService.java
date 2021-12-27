@@ -36,9 +36,9 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public List<Customer> getAllByName(String name, Long id, int size) {
+    public List<Customer> getPagedById(Long id, int size) {
         final Pageable pageable = PageRequest.of(0, size, Sort.by(Sort.Direction.ASC, "id"));
-        List<Customer> result = customerRepository.findAllByNameAndIdGreaterThanEqual(name, id ,pageable);
+        List<Customer> result = customerRepository.findAllByIdGreaterThanEqual(id, pageable);
         return result;
     }
 }
